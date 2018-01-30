@@ -33,7 +33,7 @@ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServicePro
 Now for token encryption, I need to generate a secret key by running following line of code :
 
 ```
-php artisan jwt:generate
+php artisan jwt:secret
 ```
 
 Now I will create middleware to check if the token is valid or not and also You can handle the exception if the token is expired.
@@ -102,7 +102,9 @@ protected $routeMiddleware = [
 Add from ENV file:
 
 #FILEMANAGER_LOCATION - File manager location
+```
 FILEMANAGER_LOCATION=myfilemanager
+```
 
 Since the file manager only works with authorized users, you need to make a connection to the database, and create a plaque for users with minimal fields email, password
 If you do not have it, you can do it using the command:
@@ -126,15 +128,17 @@ example:
 
 
 method GET
-
-http.youdomain.com/filemanager
-
+```
+{http.youdomain.com}/filemanager
+```
 this method open filemanager and scan him
 
 
-method POST
 
-http.youdomain.com/filemanager/folder/{folder?}
+method POST
+```
+{http.youdomain.com}/filemanager/folder/{folder?}
+```
 
 this method accepts data for sorting items into a file manager
 
@@ -142,93 +146,104 @@ Need to send data: 'value' and 'type'. 'value' may be important 'size' or 'time'
 Defaul is 'value' = 'time', 'type' = SORT_ASC
 
 
+
 method GET
-
-http.youdomain.com/filemanager/folder/{path to folder?}
-
+```
+{http.youdomain.com}/filemanager/folder/{path to folder?}
+```
 this route open this selected folder
 
 
+
 method POST
-
-http.youdomain.com/filemanager/folder/create/{path to folder?}
-
+```
+{http.youdomain.com}/filemanager/folder/create/{path to folder?}
+```
 this method create new folder in this directory
 
 Need to send data: 'name' - is name folder
 
 
+
 method PUT
-
-http.youdomain.com/filemanager/folder/update/{path to folder}
-
+```
+{http.youdomain.com}/filemanager/folder/update/{path to folder}
+```
 this method update(rename folder) selected folder in this directory
 
 Need to send data: 'name', 'newname' where 'name' is name selected folder and 'newname' that new name folder
 
 
+
 method DELETE
-
-http.youdomain.com/filemanager/folder/delete/{path to folder}
-
+```
+{http.youdomain.com}/filemanager/folder/delete/{path to folder}
+```
 this method delete selected folder in this directory
 
 Need to send data: 'name', where value is name selected folder
 
 
+
 method POST
-
-http.youdomain.com/filemanager/folder/changelocation/{path to folder}
-
+```
+{http.youdomain.com}/filemanager/folder/changelocation/{path to folder}
+```
 this method change location folder and the attachments in it are files
 
 Need to send data: 'from', 'to'. 'from' - address from which of the derivatives, 'to' - where to move
 
 
+
 method GET
-
-http.youdomain.com/filemanager/file/{filename}/folder/{path to file?}
-
+```
+{http.youdomain.com}/filemanager/file/{filename}/folder/{path to file?}
+```
 this method return file data
 
 
+
 method POST
-
-http.youdomain.com/filemanager/file/create/{path to file?}
-
+```
+{http.youdomain.com}/filemanager/file/create/{path to file?}
+```
 this method create file
 
 Need to send: 'name' and 'data' where value name is name file and your expansion, 'data' is content file
 
 
+
 method PUT
-
-http.youdomain.com/filemanager/file/update/{path to file?}
-
+```
+{http.youdomain.com}/filemanager/file/update/{path to file?}
+```
 Need to send: 'name' and 'data' where value name is name file and your expansion, 'data' is content file
 
 
+
 method POST
-
-http.youdomain.com/filemanager/file/upload/{path to file?}
-
+```
+{http.youdomain.com}/filemanager/file/upload/{path to file?}
+```
 this method upload file
 
 
+
 method DELETE
-
-http.youdomain.com/filemanager/file/delete/{path to file?}
-
+```
+{http.youdomain.com}/filemanager/file/delete/{path to file?}
+```
 Need to send: 'name' and the file is deleted
 
 
+
 method POST
-
-http.youdomain.com/filemanager/file/changelocation/{path to folder?}
-
+```
+{http.youdomain.com}/filemanager/file/changelocation/{path to folder?}
+```
 this method change location file
-
 Need to send data: 'from', 'to'. 'from' - address from which of the derivatives, 'to' - where to move
+
 
 
 ## License
