@@ -117,8 +117,9 @@ Available routes
 
 To work with the file manager you need to login
 by POST method, send an email address and password to this route to authorize and receive a token
-
+```
 http.youdomain.com/auth/login
+```
 
 File Manager Routes
 
@@ -135,11 +136,13 @@ this method open filemanager and scan him
 
 
 
+
 method GET
 ```
 {http.youdomain.com}/filemanager/folder/{path to folder?}
 ```
 this route open this selected folder
+
 
 
 
@@ -153,6 +156,7 @@ Need to send data: 'name' - is name folder
 
 
 
+
 method POST
 ```
 {http.youdomain.com}/filemanager/file/create/{path to file?}
@@ -163,11 +167,13 @@ Need to send: 'name' and 'data' where value name is name file and your expansion
 
 
 
+
 method POST
 ```
 {http.youdomain.com}/filemanager/file/upload/{path to file?}
 ```
 this method upload file
+
 
 
 
@@ -181,11 +187,13 @@ Need to send data: 'name', 'newname' where 'name' is name selected folder and 'n
 
 
 
+
 method PUT
 ```
 {http.youdomain.com}/filemanager/file/update/{path to file?}
 ```
 Need to send: 'name' and 'data' where value name is name file and your expansion, 'data' is content file
+
 
 
 
@@ -199,6 +207,7 @@ Need to send data: 'name', where value is name selected folder
 
 
 
+
 method DELETE
 ```
 {http.youdomain.com}/filemanager/file/delete/{path to file?}
@@ -207,11 +216,13 @@ Need to send: 'name' and the file is deleted
 
 
 
+
 method GET
 ```
 {http.youdomain.com}/filemanager/file/{filename}/folder/{path to file?}
 ```
 this method return file data
+
 
 
 
@@ -225,12 +236,14 @@ Need to send data: 'from', 'to'. 'from' - address from which of the derivatives,
 
 
 
+
 method POST
 ```
 {http.youdomain.com}/filemanager/file/changelocation/{path to folder?}
 ```
 this method change location file
 Need to send data: 'from', 'to'. 'from' - address from which of the derivatives, 'to' - where to move
+
 
 
 
@@ -243,6 +256,7 @@ this method accepts data for sorting items into a file manager
 
 Need to send data: 'value' and 'type'. 'value' may be important 'size' or 'time', 'type' may be important 'SORT_ASC' or SORT_DESC.
 Defaul is 'value' = 'time', 'type' = SORT_ASC
+
 
 
 
