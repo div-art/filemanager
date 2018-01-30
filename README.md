@@ -1,5 +1,5 @@
 # Filemanager
-Filemanager package for Laravel
+Filemanager package for Laravel 5.5
 
 ## Installation
 To install, run the following in your project directory:
@@ -135,18 +135,6 @@ this method open filemanager and scan him
 
 
 
-method POST
-```
-{http.youdomain.com}/filemanager/folder/{folder?}
-```
-
-this method accepts data for sorting items into a file manager
-
-Need to send data: 'value' and 'type'. 'value' may be important 'size' or 'time', 'type' may be important 'SORT_ASC' or SORT_DESC.
-Defaul is 'value' = 'time', 'type' = SORT_ASC
-
-
-
 method GET
 ```
 {http.youdomain.com}/filemanager/folder/{path to folder?}
@@ -165,6 +153,24 @@ Need to send data: 'name' - is name folder
 
 
 
+method POST
+```
+{http.youdomain.com}/filemanager/file/create/{path to file?}
+```
+this method create file
+
+Need to send: 'name' and 'data' where value name is name file and your expansion, 'data' is content file
+
+
+
+method POST
+```
+{http.youdomain.com}/filemanager/file/upload/{path to file?}
+```
+this method upload file
+
+
+
 method PUT
 ```
 {http.youdomain.com}/filemanager/folder/update/{path to folder}
@@ -172,6 +178,14 @@ method PUT
 this method update(rename folder) selected folder in this directory
 
 Need to send data: 'name', 'newname' where 'name' is name selected folder and 'newname' that new name folder
+
+
+
+method PUT
+```
+{http.youdomain.com}/filemanager/file/update/{path to file?}
+```
+Need to send: 'name' and 'data' where value name is name file and your expansion, 'data' is content file
 
 
 
@@ -185,13 +199,11 @@ Need to send data: 'name', where value is name selected folder
 
 
 
-method POST
+method DELETE
 ```
-{http.youdomain.com}/filemanager/folder/changelocation/{path to folder}
+{http.youdomain.com}/filemanager/file/delete/{path to file?}
 ```
-this method change location folder and the attachments in it are files
-
-Need to send data: 'from', 'to'. 'from' - address from which of the derivatives, 'to' - where to move
+Need to send: 'name' and the file is deleted
 
 
 
@@ -205,35 +217,11 @@ this method return file data
 
 method POST
 ```
-{http.youdomain.com}/filemanager/file/create/{path to file?}
+{http.youdomain.com}/filemanager/folder/changelocation/{path to folder}
 ```
-this method create file
+this method change location folder and the attachments in it are files
 
-Need to send: 'name' and 'data' where value name is name file and your expansion, 'data' is content file
-
-
-
-method PUT
-```
-{http.youdomain.com}/filemanager/file/update/{path to file?}
-```
-Need to send: 'name' and 'data' where value name is name file and your expansion, 'data' is content file
-
-
-
-method POST
-```
-{http.youdomain.com}/filemanager/file/upload/{path to file?}
-```
-this method upload file
-
-
-
-method DELETE
-```
-{http.youdomain.com}/filemanager/file/delete/{path to file?}
-```
-Need to send: 'name' and the file is deleted
+Need to send data: 'from', 'to'. 'from' - address from which of the derivatives, 'to' - where to move
 
 
 
@@ -243,6 +231,18 @@ method POST
 ```
 this method change location file
 Need to send data: 'from', 'to'. 'from' - address from which of the derivatives, 'to' - where to move
+
+
+
+method POST
+```
+{http.youdomain.com}/filemanager/folder/{folder?}
+```
+
+this method accepts data for sorting items into a file manager
+
+Need to send data: 'value' and 'type'. 'value' may be important 'size' or 'time', 'type' may be important 'SORT_ASC' or SORT_DESC.
+Defaul is 'value' = 'time', 'type' = SORT_ASC
 
 
 
