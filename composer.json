@@ -1,0 +1,33 @@
+{
+    "name": "div-art/filemanager",
+    "description": "create filemanager file",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Div-Art",
+            "email": "info@div-art.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "~5",
+        "tymon/jwt-auth": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Divart\\Filemanager\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Divart\\Filemanager\\FilemanagerServiceProvider"
+            ],
+            "aliases": {
+                "Filemanager": "Divart\\Filemanager\\Facades\\Filemanager"
+            }
+        }
+    }
+}
